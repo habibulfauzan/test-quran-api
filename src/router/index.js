@@ -7,9 +7,9 @@ const routes = [
         component: () => import("@/views/myQuran.vue")
     },
     {
-        path: '/quran2',
-        name: 'views.quran2',
-        component: () => import("@/views/QuranType.vue")
+        path: '/contacts',
+        name: 'views.contacts',
+        component: () => import("@/views/myContact.vue")
     }
 ];
 

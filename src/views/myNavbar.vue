@@ -13,8 +13,8 @@
                     class="nav-link active" aria-current="page">Home</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link :to="{name: 'views.quran2'}"
-                    class="nav-link active" aria-current="page">Test page</router-link>
+                    <router-link :to="{name: 'views.contacts'}"
+                    class="nav-link active" aria-current="page">Contact Me</router-link>
                 </li>
                 <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -27,45 +27,11 @@
                     </ul>
                 </li> -->
             </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
-    <div class="container my-5">
-        <h3>Surah {{surah}}</h3>
-            <ul class="text-center" v-for="ayat in ayat" :key="ayat">
-                {{ayat}}
-            </ul>
-            <p>Artinya: </p>
-            <ul class="text-center" v-for="translate in translate" :key="translate">
-                {{translate}}
-            </ul>
-    </div>
 </template>
 
 <script>
-import axios from "axios";
-
-export default {
-  data() {
-    return {
-      ayat: [],
-      surah: [],
-      translate: [],
-    };
-  },
-  async mounted() {
-    const url = await axios.get("https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=2");
-    this.ayat = url.data.verses.map(({text_uthmani}) => text_uthmani)
-
-    const surah = await axios.get("https://api.quran.com/api/v4/chapters/2?language=id");
-    this.surah = surah.data.chapter.name_complex;
-
-    const translate = await axios.get("https://api.quran.com/api/v4/quran/translations/134?chapter_number=2");
-    this.translate = translate.data.translations.map(({text}) => text);
-  },
-};
+    export default {}
 </script>
